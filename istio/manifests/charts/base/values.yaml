@@ -16,7 +16,7 @@ global:
   remotePilotAddress: ""
 
 base:
-  # Used for helm2 to add the CRDs to templates.
+  # Used for helm2 to add the CRDs to templates. defaul false
   enableCRDTemplates: false
 
   # Validation webhook configuration url
