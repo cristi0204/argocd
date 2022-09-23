@@ -10,3 +10,18 @@ generatorOptions:
  disableNameSuffixHash: false
  annotations:
    metallb.universe.tf/address-pool: 172.16.100.150-172.16.100.175
+/*
+helmGlobals:
+  chartHome: string
+  configHome: string
+*/
+helmCharts:
+- name: prometheus
+  version: string
+  repo: https://prometheus-community.github.io/helm-charts
+  releaseName: 15.13.0
+  namespace: prometheus
+  valuesInline: map[string]interface{}
+  valuesFile: values.yaml
+  valuesMerge: false
+  includeCRDs: true
