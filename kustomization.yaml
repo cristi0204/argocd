@@ -6,4 +6,4 @@ resources:
 generatorOptions:
  disableNameSuffixHash: false
  annotations:
-   metallb.universe.tf/address-pool: lb-ip-pool
+   metallb.universe.tf/address-pool: 172.16.100.150-172.16.100.175
