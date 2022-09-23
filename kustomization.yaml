@@ -1,0 +1,9 @@
+namespace: metallb-system
+
+resources:
+  - github.com/metallb/metallb/config/native?ref=v0.13.5
+  
+generatorOptions:
+ disableNameSuffixHash: false
+ annotations:
+   metallb.universe.tf/address-pool: lb-ip-pool
