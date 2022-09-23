@@ -1,7 +1,7 @@
 namespace: metallb-system
 
 resources:
-  - Chart.yaml
+  - - github.com/metallb/metallb/config/native?ref=v0.13.5
 
 generatorOptions:
  disableNameSuffixHash: false
