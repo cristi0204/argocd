@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aisaac-lec
+spec:
+  destination:
+    name: ''
+    namespace: lec
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: lec-poc
+    repoURL: >-
+      https://BDS-CYS-Service-Engineering@dev.azure.com/BDS-CYS-Service-Engineering/aisaac-lec-poc/_git/aisaac-lec-poc
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+    # automated:
+    #   prune: true
+    #   selfHeal: true
