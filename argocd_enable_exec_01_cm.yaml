@@ -9,4 +9,4 @@ metadata:
 data:
   exec.enabled: "true"
   # exec.shells restricts which shells are allowed for `exec`, and in which order they are attempted
-  exec.shells: "bash,sh,powershell,cmd"
+  # exec.shells: "bash,sh,powershell,cmd"
