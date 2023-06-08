@@ -64,8 +64,45 @@ secret:
 certs:
   create: true
   enabled: true
-
   domainName: "btic.5g"
+
+  bootstrapper:
+    # 1 year = 8760h
+    duration: 8760h0m0s
+    renewBefore: 24h0m0s
+
+  adminOperator:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
+    customIssuer:
+    pkcs12:
+      password: password
+
+  certifier:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
+
+  nms:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
+
+  controller:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
+
+  fluentd:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
+
+  root:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
 
 nginx:
   create: true
