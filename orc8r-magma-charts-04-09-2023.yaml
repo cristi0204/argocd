@@ -1,5 +1,44 @@
 # for ShubhamTatvamasi charts
 # https://github.com/ShubhamTatvamasi/magma-charts-04-09-2023
+
+
+## Metrics
+metrics:
+  prometheus:
+    includeOrc8rAlerts: true
+  prometheusCache:
+    limit: 500000
+  metrics:
+    volumes:
+      prometheusConfig:
+        volumeSpec:
+          emptyDir: {}
+          # persistentVolumeClaim:
+          #   claimName: promcfg
+      prometheusData:
+        volumeSpec:
+          emptyDir: {}
+          # persistentVolumeClaim:
+          #   claimName: promdata
+  userGrafana:
+    volumes:
+      datasources:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanadatasources
+      dashboardproviders:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanaproviders
+      dashboards:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanadashboards
+      grafanaData:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanadata
+
 certs:
   bootstrapper:
     # 1 year = 8760h
