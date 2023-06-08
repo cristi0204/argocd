@@ -54,14 +54,21 @@ metrics:
     create: true
   metrics:
     volumes:
-      prometheusConfig:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: promcfg
       prometheusData:
         volumeSpec:
-          persistentVolumeClaim:
-            claimName: promdata
+          emptyDir: {}
+      prometheusConfig:
+        volumeSpec:
+          emptyDir: {}
+#     volumes:
+#       prometheusConfig:
+#         volumeSpec:
+#           persistentVolumeClaim:
+#             claimName: promcfg
+#       prometheusData:
+#         volumeSpec:
+#           persistentVolumeClaim:
+#             claimName: promdata
   userGrafana:
     volumes:
       datasources:
