@@ -132,7 +132,7 @@ secrets:
     password: password
   secret:
     certs:
-#       enabled: true
+      enabled: true
       files:
         rootCA.pem: |
           -----BEGIN CERTIFICATE-----
