@@ -45,7 +45,7 @@ metrics:
     create: true
   prometheusCache:
     create: true
-    limit: 500000
+    limit: 5000 #500000
   prometheusConfigurer:
     create: true
   alertmanager:
