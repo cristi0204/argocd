@@ -43,7 +43,7 @@ secrets:
     certs:
       enabled: 'true'
       files:
-        rootCA.pem: |-
+        rootCA.pem: |
           -----BEGIN CERTIFICATE-----
           MIIDGTCCAgGgAwIBAgIRANeI237QX3I64ytjpX0giJIwDQYJKoZIhvcNAQELBQAw
           JjELMAkGA1UEBhMCVVMxFzAVBgNVBAMTDnJvb3RjYS5idGljLjVnMB4XDTIzMDYw
