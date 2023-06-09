@@ -46,11 +46,11 @@ bootstrapper:
   #   template:
   #     spec:
   #       containers:
-  volumeMounts:
-    - mountPath: /var/opt/magma/certs/rootCA.pem
-      name: root
-      readOnly: true
-      subPath: tls.crt
+    volumeMounts:
+      - mountPath: /var/opt/magma/certs/rootCA.pem
+        name: root
+        readOnly: true
+        subPath: tls.crt
       
 nms:
   magmalte:
