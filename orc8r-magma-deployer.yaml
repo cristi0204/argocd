@@ -40,6 +40,18 @@ certs:
     # 10 year = 87600h
     duration: 87600h0m0s
     renewBefore: 24h0m0s
+
+bootstrapper:
+  spec:
+  #   template:
+  #     spec:
+  #       containers:
+  volumeMounts:
+    - mountPath: /var/opt/magma/certs/rootCA.pem
+      name: root
+      readOnly: true
+      subPath: tls.crt
+      
 nms:
   magmalte:
     image:
