@@ -144,7 +144,7 @@ secrets:
     password: password
   secret:
     certs:
-      enabled: true
+      enabled: false
       files:
         rootCA.pem: |
           -----BEGIN CERTIFICATE-----
