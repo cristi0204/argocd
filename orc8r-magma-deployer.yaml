@@ -52,13 +52,13 @@ certs:
 #         readOnly: true
 #         subPath: tls.crt
 bootstrapper:
-  spec:
-    extraSecretMounts:
-      - name: rootCA-pem
-        secretName: orc8r-root-tls
-        mountPath: /var/opt/magma/certs/rootCA.pem
-        subPath: tls.crt 
-        readOnly: true 
+#   spec:
+  extraSecretMounts:
+    - name: rootCA-pem
+      secretName: orc8r-root-tls
+      mountPath: /var/opt/magma/certs/rootCA.pem
+      subPath: tls.crt 
+      readOnly: true 
       
 nms:
   magmalte:
@@ -155,4 +155,6 @@ secrets:
       enabled: false
       files: {}
 
-
+##. domain proxy
+dp:
+  enabled: 'true'
