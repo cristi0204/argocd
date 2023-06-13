@@ -146,14 +146,5 @@ secrets:
     certs:
       enabled: false
       files: {}
-bootstrapper:
-  extraVolumes:
-    - name: orc8r-root-tls
-      secret:
-        secretName: orc8r-root-tls
-  extraVolumeMounts:
-    - name: orc8r-root-tls
-      mountPath: /var/opt/magma/certs/rootCA.pem
-      readOnly: true
-      subPath: tls.crt    
+
 
