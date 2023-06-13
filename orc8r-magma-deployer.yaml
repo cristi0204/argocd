@@ -41,16 +41,24 @@ certs:
     duration: 87600h0m0s
     renewBefore: 24h0m0s
 
+# bootstrapper:
+#   spec:
+#   #   template:
+#   #     spec:
+#   #       containers:
+#     volumeMounts:
+#       - mountPath: /var/opt/magma/certs/rootCA.pem
+#         name: root
+#         readOnly: true
+#         subPath: tls.crt
 bootstrapper:
   spec:
-  #   template:
-  #     spec:
-  #       containers:
-    volumeMounts:
-      - mountPath: /var/opt/magma/certs/rootCA.pem
-        name: root
-        readOnly: true
-        subPath: tls.crt
+    extraSecretMounts:
+      - name: rootCA-pem
+        secretName: orc8r-root-tls
+        mountPath: /var/opt/magma/certs/rootCA.pem
+        subPath: tls.crt 
+        readOnly: true 
       
 nms:
   magmalte:
