@@ -160,26 +160,28 @@ dp:
   enabled: 'true'
 
 logging:
+  secret:
+    certs: orc8r-fluentd-tls
   imagePullSecrets:
     - name: gitlab-btic5g
   # secret:
   #   certs: orc8r-fluentd-tls
-  volumes:
-    - name: mycerts
-      secret:
-        secretName: orc8r-fluentd-tls
-        defaultMode: 420
-  containers:
-    volumeMounts:
-      - mountPath: /var/opt/magma/certs/certifier.pem
-        name: mycerts
-        readOnly: true
-        subPath: ca.crt
-      - mountPath: /var/opm.magma/certs/fluentd.pem
-        name: mycerts
-        readOnly: true
-        subPath: tls.crt
-      - mountPath: /var/opt/magma/certs/fluentd.key
-        name: mycerts
-        readOnly: true
-        subPath: tls.key
+  # volumes:
+  #   - name: mycerts
+  #     secret:
+  #       secretName: orc8r-fluentd-tls
+  #       defaultMode: 420
+  # containers:
+  volumeMounts:
+    - mountPath: /var/opt/magma/certs/certifier.pem
+      name: mycerts
+      readOnly: true
+      subPath: ca.crt
+    - mountPath: /var/opm.magma/certs/fluentd.pem
+      name: mycerts
+      readOnly: true
+      subPath: tls.crt
+    - mountPath: /var/opt/magma/certs/fluentd.key
+      name: mycerts
+      readOnly: true
+      subPath: tls.key
