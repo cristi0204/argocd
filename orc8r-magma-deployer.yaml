@@ -172,16 +172,16 @@ logging:
   #       secretName: orc8r-fluentd-tls
   #       defaultMode: 420
   # containers:
-  volumeMounts:
-    - mountPath: /var/opt/magma/certs/certifier.pem
-      name: mycerts
-      readOnly: true
-      subPath: ca.crt
-    - mountPath: /var/opm.magma/certs/fluentd.pem
-      name: mycerts
-      readOnly: true
-      subPath: tls.crt
-    - mountPath: /var/opt/magma/certs/fluentd.key
-      name: mycerts
-      readOnly: true
-      subPath: tls.key
+  # volumeMounts:
+  #   - mountPath: /var/opt/magma/certs/certifier.pem
+  #     name: mycerts
+  #     readOnly: true
+  #     subPath: ca.crt
+  #   - mountPath: /var/opm.magma/certs/fluentd.pem
+  #     name: mycerts
+  #     readOnly: true
+  #     subPath: tls.crt
+  #   - mountPath: /var/opt/magma/certs/fluentd.key
+  #     name: mycerts
+  #     readOnly: true
+  #     subPath: tls.key
