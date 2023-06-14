@@ -168,21 +168,21 @@ logging:
     image:
       repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd-debian
       tag: latest
-    volumes:
-      - name: mycerts
-        secret:
-          secretName: orc8r-fluentd-tls
-          defaultMode: 420
+    # volumes:
+    #   - name: mycerts
+    #     secret:
+    #       secretName: orc8r-fluentd-tls
+    #       defaultMode: 420
     volumeMounts:
       - mountPath: /var/opt/magma/certs/certifier.pem
-        name: mycerts
+        name: certs
         readOnly: true
         subPath: ca.crt
       - mountPath: /var/opm.magma/certs/fluentd.pem
-        name: mycerts
+        name: certs
         readOnly: true
         subPath: tls.crt
       - mountPath: /var/opt/magma/certs/fluentd.key
-        name: mycerts
+        name: certs
         readOnly: true
         subPath: tls.key
