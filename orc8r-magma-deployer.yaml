@@ -162,3 +162,5 @@ dp:
 logging:
   imagePullSecrets:
     - name: gitlab-btic5g
+  secret:
+    certs: orc8r-fluentd-tls
