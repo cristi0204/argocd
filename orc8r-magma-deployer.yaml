@@ -166,8 +166,7 @@ logging:
     - name: gitlab-btic5g
   fluentd_forward:
     image:
-      repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd-alpine
-      # repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd/fluentd
+      repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd-debian
       tag: latest
     env:
       elastic_host: elasticsearch-master
