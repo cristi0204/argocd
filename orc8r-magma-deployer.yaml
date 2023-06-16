@@ -195,3 +195,13 @@ logging:
         name: certs
         readOnly: true
         subPath: tls.key
+
+helm:
+  certs:
+    enabled: 'true'
+  controller:
+    image:
+      repository: 'linuxfoundation.jfrog.io/magma-docker/controller'
+      tag: '1.8.0'
+      env:
+        orc8r_domain_name: "btic.5g"
