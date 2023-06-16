@@ -166,8 +166,9 @@ logging:
     - name: gitlab-btic5g
   fluentd_forward:
     image:
-      repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd-debian
-      tag: latest
+      # repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd-debian
+      repository: gcr.io/google-containers/fluentd-elasticsearch
+      tag: v2.4.0
     env:
       elastic_host: elasticsearch-master
       elastic_port: 9200
