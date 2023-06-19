@@ -72,7 +72,7 @@ nms:
       tag: "1.8.0"
       pullPolicy: IfNotPresent
     env:
-      api_host: orc8r-nginx-proxy
+      api_host: orc8r-nginx-proxy:443
       mysql_host: postgresql
       mysql_user: postgres
       mysql_pass: postgres
