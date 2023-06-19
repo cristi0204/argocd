@@ -62,6 +62,11 @@ bootstrapper:
       
 nms:
   magmalte:
+    manifests:
+      configmap: true
+      secrets: true
+      deployment: true
+      service: true
     image:
       repository: "linuxfoundation.jfrog.io/magma-docker/magmalte"
       tag: "1.8.0"
