@@ -60,8 +60,8 @@ certs:
 #       subPath: tls.crt 
 #       readOnly: true 
       
-# nms:
-#   magmalte:
+nms:
+  magmalte:
 #     manifests:
 #       configmap: true
 #       secrets: true
@@ -71,14 +71,16 @@ certs:
 #       repository: "linuxfoundation.jfrog.io/magma-docker/magmalte"
 #       tag: "1.8.0"
 #       pullPolicy: IfNotPresent
-#     env:
-#       api_host: orc8r-nginx-proxy:443
-#       mysql_host: postgresql
-#       mysql_user: postgres
-#       mysql_pass: postgres
-#   nginx:
-#     image:
-#       pullPolicy: IfNotPresent
+    env:
+      api_host: orc8r-nginx-proxy:443
+      mysql_host: postgresql
+      mysql_user: postgres
+      mysql_pass: postgres
+  nginx:
+    image:
+      repository: nginx
+      tag: stable
+      pullPolicy: Always
 #     service:
 #       type: "LoadBalancer"
 #   secret:
