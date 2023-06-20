@@ -76,15 +76,15 @@ nms:
       mysql_host: postgresql
       mysql_user: postgres
       mysql_pass: postgres
-  nginx:
-    image:
-      repository: nginx
-      tag: stable
-      pullPolicy: Always
+  # nginx:
+  #   image:
+  #     repository: nginx
+  #     tag: stable
+  #     pullPolicy: Always
 #     service:
 #       type: "LoadBalancer"
-  secret:
-    certs:  orc8r-nms-tls
+  # secret:
+  #   certs:  orc8r-nms-tls
 # nginx:
 #   replicas: 1
 #   image:
@@ -95,10 +95,10 @@ nms:
 #   service:
 #     type: "LoadBalancer"
 controller:
-  replicas: 1
+  # replicas: 1
   image:
-    repository: "linuxfoundation.jfrog.io/magma-docker/controller"
-    tag: "1.8.0"
+    # repository: "linuxfoundation.jfrog.io/magma-docker/controller"
+    # tag: "1.8.0"
     env:
       orc8r_domain_name: "btic.5g"
   podDisruptionBudget:
