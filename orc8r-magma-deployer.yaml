@@ -94,15 +94,15 @@ nms:
 #     hostname: controller.btic.5g
 #   service:
 #     type: "LoadBalancer"
-# controller:
-#   replicas: 1
-#   image:
-#     repository: "linuxfoundation.jfrog.io/magma-docker/controller"
-#     tag: "1.8.0"
-#     env:
-#       orc8r_domain_name: "btic.5g"
-#   podDisruptionBudget:
-#     enabled: true
+controller:
+  replicas: 1
+  image:
+    repository: "linuxfoundation.jfrog.io/magma-docker/controller"
+    tag: "1.8.0"
+    env:
+      orc8r_domain_name: "btic.5g"
+  podDisruptionBudget:
+    enabled: true
 metrics:
   prometheus:
     includeOrc8rAlerts: true
