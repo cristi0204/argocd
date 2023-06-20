@@ -1,45 +1,45 @@
-# certs:
-#   create: true
-#   enabled: true
-#   domainName: "btic.5g"
+certs:
+  create: true
+  enabled: true
+  domainName: "btic.5g"
   
-#   bootstrapper:
-#     # 1 year = 8760h
-#     duration: 8760h0m0s
-#     renewBefore: 24h0m0s
+  bootstrapper:
+    # 1 year = 8760h
+    duration: 8760h0m0s
+    renewBefore: 24h0m0s
 
-#   adminOperator:
-#     # 10 year = 87600h
-#     duration: 87600h0m0s
-#     renewBefore: 24h0m0s
-#     customIssuer:
-#     pkcs12:
-#       password: password
+  adminOperator:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
+    customIssuer:
+    pkcs12:
+      password: password
 
-#   certifier:
-#     # 10 year = 87600h
-#     duration: 87600h0m0s
-#     renewBefore: 24h0m0s
+  certifier:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
 
-#   nms:
-#     # 10 year = 87600h
-#     duration: 87600h0m0s
-#     renewBefore: 24h0m0s
+  nms:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
 
-#   controller:
-#     # 10 year = 87600h
-#     duration: 87600h0m0s
-#     renewBefore: 24h0m0s
+  controller:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
 
-#   fluentd:
-#     # 10 year = 87600h
-#     duration: 87600h0m0s
-#     renewBefore: 24h0m0s
+  fluentd:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
 
-#   root:
-#     # 10 year = 87600h
-#     duration: 87600h0m0s
-#     renewBefore: 24h0m0s
+  root:
+    # 10 year = 87600h
+    duration: 87600h0m0s
+    renewBefore: 24h0m0s
 
 # bootstrapper:
 #   spec:
@@ -60,8 +60,8 @@
 #       subPath: tls.crt 
 #       readOnly: true 
       
-nms:
-  magmalte:
+# nms:
+#   magmalte:
 #     manifests:
 #       configmap: true
 #       secrets: true
@@ -71,11 +71,11 @@ nms:
 #       repository: "linuxfoundation.jfrog.io/magma-docker/magmalte"
 #       tag: "1.8.0"
 #       pullPolicy: IfNotPresent
-    env:
-      api_host: orc8r-nginx-proxy:443
-      mysql_host: postgresql
-      mysql_user: postgres
-      mysql_pass: postgres
+    # env:
+    #   api_host: orc8r-nginx-proxy:443
+    #   mysql_host: postgresql
+    #   mysql_user: postgres
+    #   mysql_pass: postgres
   # nginx:
   #   image:
   #     repository: nginx
