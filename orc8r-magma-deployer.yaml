@@ -60,147 +60,147 @@ bootstrapper:
       subPath: tls.crt 
       readOnly: true 
       
-nms:
-  magmalte:
-    manifests:
-      configmap: true
-      secrets: true
-      deployment: true
-      service: true
-    image:
-      repository: "linuxfoundation.jfrog.io/magma-docker/magmalte"
-      tag: "1.8.0"
-      pullPolicy: IfNotPresent
-    env:
-      api_host: orc8r-nginx-proxy:443
-      mysql_host: postgresql
-      mysql_user: postgres
-      mysql_pass: postgres
-  nginx:
-    image:
-      pullPolicy: IfNotPresent
-    service:
-      type: "LoadBalancer"
-  secret:
-    certs:  orc8r-secrets-certs
-nginx:
-  replicas: 1
-  image:
-    repository: "linuxfoundation.jfrog.io/magma-docker/nginx"
-    tag: "1.8.0"
-  spec:
-    hostname: controller.btic.5g
-  service:
-    type: "LoadBalancer"
-controller:
-  replicas: 1
-  image:
-    repository: "linuxfoundation.jfrog.io/magma-docker/controller"
-    tag: "1.8.0"
-    env:
-      orc8r_domain_name: "btic.5g"
-  podDisruptionBudget:
-    enabled: true
-metrics:
-  prometheus:
-    includeOrc8rAlerts: true
-    create: true
-  prometheusCache:
-    create: true
-    limit: 5000 #500000
-  prometheusConfigurer:
-    create: true
-  alertmanager:
-    create: true
-  alertmanagerConfigurer:
-    create: true
-  metrics:
-    volumes:
-      prometheusData:
-        volumeSpec:
-          emptyDir: {}
-      prometheusConfig:
-        volumeSpec:
-          emptyDir: {}
+# nms:
+#   magmalte:
+#     manifests:
+#       configmap: true
+#       secrets: true
+#       deployment: true
+#       service: true
+#     image:
+#       repository: "linuxfoundation.jfrog.io/magma-docker/magmalte"
+#       tag: "1.8.0"
+#       pullPolicy: IfNotPresent
+#     env:
+#       api_host: orc8r-nginx-proxy:443
+#       mysql_host: postgresql
+#       mysql_user: postgres
+#       mysql_pass: postgres
+#   nginx:
+#     image:
+#       pullPolicy: IfNotPresent
+#     service:
+#       type: "LoadBalancer"
+#   secret:
+#     certs:  orc8r-secrets-certs
+# nginx:
+#   replicas: 1
+#   image:
+#     repository: "linuxfoundation.jfrog.io/magma-docker/nginx"
+#     tag: "1.8.0"
+#   spec:
+#     hostname: controller.btic.5g
+#   service:
+#     type: "LoadBalancer"
+# controller:
+#   replicas: 1
+#   image:
+#     repository: "linuxfoundation.jfrog.io/magma-docker/controller"
+#     tag: "1.8.0"
+#     env:
+#       orc8r_domain_name: "btic.5g"
+#   podDisruptionBudget:
+#     enabled: true
+# metrics:
+#   prometheus:
+#     includeOrc8rAlerts: true
+#     create: true
+#   prometheusCache:
+#     create: true
+#     limit: 5000 #500000
+#   prometheusConfigurer:
+#     create: true
+#   alertmanager:
+#     create: true
+#   alertmanagerConfigurer:
+#     create: true
+#   metrics:
 #     volumes:
-#       prometheusConfig:
-#         volumeSpec:
-#           persistentVolumeClaim:
-#             claimName: promcfg
 #       prometheusData:
 #         volumeSpec:
+#           emptyDir: {}
+#       prometheusConfig:
+#         volumeSpec:
+#           emptyDir: {}
+# #     volumes:
+# #       prometheusConfig:
+# #         volumeSpec:
+# #           persistentVolumeClaim:
+# #             claimName: promcfg
+# #       prometheusData:
+# #         volumeSpec:
+# #           persistentVolumeClaim:
+# #             claimName: promdata
+#   userGrafana:
+#     volumes:
+#       datasources:
+#         volumeSpec:
 #           persistentVolumeClaim:
-#             claimName: promdata
-  userGrafana:
-    volumes:
-      datasources:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanadatasources
-      dashboardproviders:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanaproviders
-      dashboards:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanadashboards
-      grafanaData:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanadata
-secrets:
-  create: true
-  docker:
-    registry: docker.io
-    username: username
-    password: password
-  secret:
-    certs:
-      enabled: false
-      files: {}
+#             claimName: grafanadatasources
+#       dashboardproviders:
+#         volumeSpec:
+#           persistentVolumeClaim:
+#             claimName: grafanaproviders
+#       dashboards:
+#         volumeSpec:
+#           persistentVolumeClaim:
+#             claimName: grafanadashboards
+#       grafanaData:
+#         volumeSpec:
+#           persistentVolumeClaim:
+#             claimName: grafanadata
+# secrets:
+#   create: true
+#   docker:
+#     registry: docker.io
+#     username: username
+#     password: password
+#   secret:
+#     certs:
+#       enabled: false
+#       files: {}
 
-##. domain proxy
-dp:
-  enabled: 'true'
+# ##. domain proxy
+# dp:
+#   enabled: 'true'
 
-logging:
-  secret:
-    certs: orc8r-fluentd-tls
-  imagePullSecrets:
-    - name: gitlab-btic5g
-  fluentd_forward:
-    image:
-      # repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd-debian
-      repository: gcr.io/google-containers/fluentd-elasticsearch
-      tag: v2.4.0
-    env:
-      elastic_host: elasticsearch-master
-      elastic_port: 9200
-      elastic_scheme: http
-      elastic_flush_interval: 5s
-    # volumes:
-    #   - name: fluentd
-    #     secret:
-    #       secretName: orc8r-fluentd-tls
-    #       defaultMode: 420
-    #   - name: certifier
-    #     secret:
-    #       secretName: orc8r-certifier-tls
-    #       defaultMode: 420
-    volumeMounts:
-      - mountPath: /var/opt/magma/certs/certifier.pem
-        name: certs
-        readOnly: true
-        subPath: ca.crt
-      - mountPath: /var/opm.magma/certs/fluentd.pem
-        name: certs
-        readOnly: true
-        subPath: tls.crt
-      - mountPath: /var/opt/magma/certs/fluentd.key
-        name: certs
-        readOnly: true
-        subPath: tls.key
+# logging:
+#   secret:
+#     certs: orc8r-fluentd-tls
+#   imagePullSecrets:
+#     - name: gitlab-btic5g
+#   fluentd_forward:
+#     image:
+#       # repository: registry.gitlab.com/cristi0204/btic-demo-5g/fluentd-debian
+#       repository: gcr.io/google-containers/fluentd-elasticsearch
+#       tag: v2.4.0
+#     env:
+#       elastic_host: elasticsearch-master
+#       elastic_port: 9200
+#       elastic_scheme: http
+#       elastic_flush_interval: 5s
+#     # volumes:
+#     #   - name: fluentd
+#     #     secret:
+#     #       secretName: orc8r-fluentd-tls
+#     #       defaultMode: 420
+#     #   - name: certifier
+#     #     secret:
+#     #       secretName: orc8r-certifier-tls
+#     #       defaultMode: 420
+#     volumeMounts:
+#       - mountPath: /var/opt/magma/certs/certifier.pem
+#         name: certs
+#         readOnly: true
+#         subPath: ca.crt
+#       - mountPath: /var/opm.magma/certs/fluentd.pem
+#         name: certs
+#         readOnly: true
+#         subPath: tls.crt
+#       - mountPath: /var/opt/magma/certs/fluentd.key
+#         name: certs
+#         readOnly: true
+#         subPath: tls.key
 
 # helm:
 #   certs:
