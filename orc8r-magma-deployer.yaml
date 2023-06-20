@@ -83,8 +83,8 @@ nms:
       pullPolicy: Always
 #     service:
 #       type: "LoadBalancer"
-#   secret:
-#     certs:  orc8r-secrets-certs
+  secret:
+    certs:  orc8r-nms-tls
 # nginx:
 #   replicas: 1
 #   image:
