@@ -103,19 +103,19 @@ nms:
 #       orc8r_domain_name: "btic.5g"
 #   podDisruptionBudget:
 #     enabled: true
-metrics:
-  prometheus:
-    includeOrc8rAlerts: true
-    create: true
-  prometheusCache:
-    create: true
-    limit: 5000 #500000
-  prometheusConfigurer:
-    create: true
-  alertmanager:
-    create: true
-  alertmanagerConfigurer:
-    create: true
+# metrics:
+#   prometheus:
+#     includeOrc8rAlerts: true
+#     create: true
+#   prometheusCache:
+#     create: true
+#     limit: 5000 #500000
+#   prometheusConfigurer:
+#     create: true
+#   alertmanager:
+#     create: true
+#   alertmanagerConfigurer:
+#     create: true
   # metrics:
   #   volumes:
   #     prometheusData:
