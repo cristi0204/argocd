@@ -114,14 +114,14 @@ metrics:
 #     create: true
 #   alertmanagerConfigurer:
 #     create: true
-  metrics:
-    volumes:
-      prometheusData:
-        volumeSpec:
-          emptyDir: {}
-      prometheusConfig:
-        volumeSpec:
-          emptyDir: {}
+  # metrics:
+  #   volumes:
+  #     prometheusData:
+  #       volumeSpec:
+  #         emptyDir: {}
+  #     prometheusConfig:
+  #       volumeSpec:
+  #         emptyDir: {}
 # #     volumes:
 # #       prometheusConfig:
 # #         volumeSpec:
