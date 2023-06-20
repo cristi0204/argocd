@@ -114,14 +114,14 @@ metrics:
 #     create: true
 #   alertmanagerConfigurer:
 #     create: true
-#   metrics:
-#     volumes:
-#       prometheusData:
-#         volumeSpec:
-#           emptyDir: {}
-#       prometheusConfig:
-#         volumeSpec:
-#           emptyDir: {}
+  metrics:
+    volumes:
+      prometheusData:
+        volumeSpec:
+          emptyDir: {}
+      prometheusConfig:
+        volumeSpec:
+          emptyDir: {}
 # #     volumes:
 # #       prometheusConfig:
 # #         volumeSpec:
@@ -131,24 +131,24 @@ metrics:
 # #         volumeSpec:
 # #           persistentVolumeClaim:
 # #             claimName: promdata
-  userGrafana:
-    volumes:
-      datasources:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanadatasources
-      dashboardproviders:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanaproviders
-      dashboards:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanadashboards
-      grafanaData:
-        volumeSpec:
-          persistentVolumeClaim:
-            claimName: grafanadata
+  # userGrafana:
+  #   volumes:
+  #     datasources:
+  #       volumeSpec:
+  #         persistentVolumeClaim:
+  #           claimName: grafanadatasources
+  #     dashboardproviders:
+  #       volumeSpec:
+  #         persistentVolumeClaim:
+  #           claimName: grafanaproviders
+  #     dashboards:
+  #       volumeSpec:
+  #         persistentVolumeClaim:
+  #           claimName: grafanadashboards
+  #     grafanaData:
+  #       volumeSpec:
+  #         persistentVolumeClaim:
+  #           claimName: grafanadata
 # secrets:
 #   create: true
 #   docker:
