@@ -101,7 +101,7 @@ bootstrapper:
 #       orc8r_domain_name: "btic.5g"
 #   podDisruptionBudget:
 #     enabled: true
-# metrics:
+metrics:
 #   prometheus:
 #     includeOrc8rAlerts: true
 #     create: true
@@ -131,24 +131,24 @@ bootstrapper:
 # #         volumeSpec:
 # #           persistentVolumeClaim:
 # #             claimName: promdata
-#   userGrafana:
-#     volumes:
-#       datasources:
-#         volumeSpec:
-#           persistentVolumeClaim:
-#             claimName: grafanadatasources
-#       dashboardproviders:
-#         volumeSpec:
-#           persistentVolumeClaim:
-#             claimName: grafanaproviders
-#       dashboards:
-#         volumeSpec:
-#           persistentVolumeClaim:
-#             claimName: grafanadashboards
-#       grafanaData:
-#         volumeSpec:
-#           persistentVolumeClaim:
-#             claimName: grafanadata
+  userGrafana:
+    volumes:
+      datasources:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanadatasources
+      dashboardproviders:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanaproviders
+      dashboards:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanadashboards
+      grafanaData:
+        volumeSpec:
+          persistentVolumeClaim:
+            claimName: grafanadata
 # secrets:
 #   create: true
 #   docker:
